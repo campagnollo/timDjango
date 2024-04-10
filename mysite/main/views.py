@@ -17,13 +17,13 @@ def index(response, id):
                     item.complete = True
                 else:
                     item.complete = False
+                item.save()
         elif response.POST.get("newItem"):
             txt = response.POST.get("newItem")
-            if len(txt)>2:
+            if len(txt) > 2:
                 ls.item_set.create(text=txt, complete=False)
             else:
                 print("invalid")
-                #ls.item_set.create(text=txt, complete=True)
 
     return render(response, "main/list.html", {"ls": ls})
 

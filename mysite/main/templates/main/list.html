@@ -10,10 +10,10 @@ View List
     {% csrf_token %}
 <ul>
     {% for item in ls.item_set.all %}
-    {% if item.complete == False %}
-    <li>{{item.text}}<input type="checkbox", value="clicked", name="{{item.id}}" checked></li>
+    {% if item.complete == True %}
+    <li>{{item.text}}<input type="checkbox", value="clicked", name="c{{item.id}}" checked></li>
     {% else %}
-    <li>{{item.text}}</li>
+    <li>{{item.text}}<input type="checkbox", value="clicked", name="c{{item.id}}"></li>
     {% endif %}
     {% endfor %}
 </ul>
